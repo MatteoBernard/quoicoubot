@@ -48,8 +48,9 @@ async def coucou(ctx):
 
 # Traitement des messages
 async def traite_message(message, mot):
+    message_content_lower = message.content.lower()
     for end in mots_cles[mot]:
-        if message.content[-len(end):] == end:
+        if message_content_lower[-len(end):] == end:
             await message.reply(random.choice(reponses[mot]))
             return
 
